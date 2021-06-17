@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(moveDirection);
 
-
-    } // move player
+        // moves the player in given direction
+    }
 
     void ApplyGravity()
     {
