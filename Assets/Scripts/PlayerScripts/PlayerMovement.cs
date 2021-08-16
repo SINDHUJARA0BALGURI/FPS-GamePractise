@@ -4,62 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController characterController;
-
-    private Vector3 moveDirection;
-
-    public float speed = 5f;
-    private float gravity = 20f;
-
-    public float jumpForce = 10f;
-    private float verticalVelocity;
-
-    void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
-        MovingThePlayer();
-    }
-
-    void MovingThePlayer()
-    {
-        //move Player
-
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f,
-                                     Input.GetAxis("Vertical"));
-
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
-
-        ApplyGravity();
-
-        characterController.Move(moveDirection);
-
-        // moves the player in given direction
-    }
-
-    void ApplyGravity()
-    {
-
-        verticalVelocity -= gravity * Time.deltaTime;
-
-        // jump
-        PlayerJump();
-
-        moveDirection.y = verticalVelocity * Time.deltaTime;
-
-    } // apply gravity
-
-    void PlayerJump()
-    {
-
-        if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            verticalVelocity = jumpForce;
-        }
-
+        
     }
 }
